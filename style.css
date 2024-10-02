@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+.slider {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: 400px; /* Set a fixed height for the slider */
+}
+
+.slides {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    background: white;
+    pointer-events: none; /* Prevent interaction with hidden slides */
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto; /* Allow interaction with the active slide */
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.category {
+    margin-bottom: 10px;
+}
+
+.category-label {
+    background-color: #ff4757;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    top: 30px;
+    position: absolute;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.meta {
+    font-size: 14px;
+    color: #888;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.views i {
+    margin-right: 5px;
+}
+
+.excerpt {
+    font-size: 16px;
+    color: #666;
+    margin: 25px 0
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.author-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.image {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Adjust the duration for faster or slower zoom */
+}
+
+/* تعديل مكان الأسهم */
+.navigation {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    display: flex;
+    gap: 10px;
+    margin-left: 40%;
+}
+
+button {
+    background: transparent;
+    color: #333;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+button i {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 10px;
+}
+
+button.prev, button.next {
+    position: relative;
+    top: 0;
+    transform: none;
+    margin-left: 10px;
+}
+
+button:focus {
+    outline: none;
+}
+
+.slide.active .image:hover img {
+    transform: scale(1.1); /* 10% zoom when hovering over the active slide's image */
+}
